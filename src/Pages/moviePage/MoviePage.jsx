@@ -35,29 +35,44 @@ const MoviePage = () => {
   const movies = [
     {
       _id: 1,
-      title: "Poly House 1",
-      imageurl: "https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=600",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam laudantium quam deleniti corrupti doloribus quibusdam nulla atque incidunt odit libero, maiores repellendus! Architecto deserunt dolorum dolore, exercitationem accusamus, consectetur ullam perferendis quibusdam saepe libero enim aliquid facere repudiandae vel maiores non expedita autem molestiae amet sed? Fugiat, consectetur alias? Commodi pariatur minus voluptatibus quidem voluptatum dicta soluta labore, ratione earum, consequuntur saepe quasi, asperiores molestias. Possimus fugit non dignissimos id quas aliquid blanditiis, earum obcaecati. Delectus provident necessitatibus magnam quos, quis ipsum. Mollitia ut qui et dignissimos deserunt inventore sit explicabo, cupiditate neque amet esse, animi adipisci libero nihil itaque!",
-    cropName: ["Crop 1", "Crop 2", "Crop 3"],
-    posterUrl: "https://images.pexels.com/photos/1382102/pexels-photo-1382102.jpeg?auto=compress&cs=tinysrgb&w=600"
+      title: "Krishikan",
+      imageurl: require("./vertical-farm.png"),
+      description: "Sustainable farming services and solutions provider for farmers Vertically Integrated Spices Value Chain Platform! sBeing a farmer is a way of life and most do not realize that they are blessed with a skill to transform their farmland into an income source. We enable the business of farming and support them to maintain a growing income. Krishikan is primarily focusing on regenerative farming approaches to improve the efficiency and productivity of the spices value chain.",
+      cropName: ["Tomato", "Letus", "Spices"],
+      // posterUrl: require("./path/to/poster1.jpg")
     },
     {
       _id: 2,
-      title: "Poly House 2",
-      imageurl: "https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=600",
-      description: "This is a description of Movie 1",
-      cropName: ["Crop 1", "Crop 2", "Crop 3"],
-    posterUrl: "https://images.pexels.com/photos/1382102/pexels-photo-1382102.jpeg?auto=compress&cs=tinysrgb&w=600"
+      title: "PlantFarmula",
+      imageurl: require("./Vertical-Farming-Companies4-1024x768.jpg"),
+      description: "PlantFarmula an urban vertical farming technology startup. Introducing 'SMAR'- Smart Modular Aeroponics farming systems to farm and cater the urban consumers with a range of premium super crops leafy vegetables (lettuces) and salad greens (Kale, Arugula, Spinach, Amarantus, leafy lettuce, spice mix etc..) at affordable prices.      ",
+      cropName: ["leafy vegetable", "green salads"],
+      // posterUrl: require("./path/to/poster2.jpg")
     },
     {
       _id: 3,
-      title: "Poly House 2",
-      imageurl: "https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=600",
-      description: "This is a description of Movie 1",
-      cropName: ["Crop 1", "Crop 2", "Crop 3"],
-    posterUrl: "https://images.pexels.com/photos/1382102/pexels-photo-1382102.jpeg?auto=compress&cs=tinysrgb&w=600"
+      title: "WAY2GROW",
+      imageurl: require("./organic-vertical-farming-pipe-lines-vertical-farming-cultivating-plant-skyscraper-greenhouse-vertically-inclined-119549579.webp"),
+      description: "To improve agriculture production and revolutionize it by technology WAY2GROW is an agri-tech company with expertise in vertical farming, IoT. We supply fresh local foods which grown by means of technology like hydroponics, data analytics through controlled environment agriculture(CEA) technique to the customers. We are into the construction of Hi-Tech farming and also into the development of automated products for agriculture. Our mission is to provide food security, reduce food wastage, food transparency and zero-pest food to the people. Our goal is to make available food to everyone fresh that creates a healthy impact.",
+      cropName: ["lettus", "tomatoes"],
+      // posterUrl: require("./path/to/poster3.jpg")
     },
-    // Add more movie objects as needed
+    {
+      _id: 4,
+      title: "Triton Foodworks",
+      imageurl: require("./images.jpg"),
+      description: "We are Triton Foodworks, a new age horticulture company that designs, builds and operates cost-effective greenhouse facilities in and around urban areas to grow fresh, premium-quality fruits and vegetables.      ",
+      cropName: ["fruits", "vegetables"],
+      // posterUrl: require("./path/to/poster4.jpg")
+    },
+    {
+      _id: 5,
+      title: "Macrogardens",
+      imageurl: require("./images.jpg"),
+      description: "We make vertical towers for growing plants aeroponically. Our towers can grow 20 times more food in the same amount of area, using up to 90% less water.      ",
+      cropName: ["berries", "cucumber"],
+      // posterUrl: require("./path/to/poster5.jpg")
+    },
   ];
   const movie = movies.find(movie => movie._id === Number(id));
 
@@ -68,15 +83,15 @@ const MoviePage = () => {
 
   return (
     <div>
-      <Container fluid style={{ padding: "0", height: "50vh", width: "100vw", backgroundImage: `url(${movie.posterUrl})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+      <Container fluid style={{ padding: "0", height: "50vh", width: "100vw", backgroundImage: `url(${movie.imageurl})`, backgroundSize: "cover", backgroundPosition: "center" }}>
       </Container>
-      <Container>
+      <Container style={{ paddingLeft: "20px", paddingRight: "20px" }}>
         <div style={{ marginBottom: "20px" }}>
-          <h2 style={{ color: "#333", fontSize: "24px", fontWeight: "bold", marginBottom: "10px" }}>{movie.title}</h2>
+          <h2 style={{ color: "#333", fontSize: "24px", fontWeight: "bold", marginBottom: "10px", textAlign: "center" }}>{movie.title}</h2>
           <p style={{ color: "#666", fontSize: "16px", marginBottom: "10px" }}>{movie.description}</p>
           {movie.cropName.map((crop, index) => (
-            <div key={index} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px", color:"black"}}>
-              <span style={{ marginRight: "10px", fontSize: "18px",  color:"black"}}>Crop: {crop}</span>
+            <div key={index} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px", color: "black" }}>
+              <span style={{ marginRight: "10px", fontSize: "18px", color: "black" }}>Crop: {crop}</span>
               <div>
                 <button style={{ marginRight: "10px", padding: "5px 10px", fontSize: "18px" }} onClick={() => removeFromCart(crop)}> - </button>
                 <span style={{ marginRight: "10px", fontSize: "18px" }}>{cart[crop] || 0}</span>
@@ -87,9 +102,14 @@ const MoviePage = () => {
           ))}
         </div>
       </Container>
-      <Button variant="primary" style={{ marginTop: "20px" }}>
-        Total items in cart: {Object.values(cart).reduce((a, b) => a + b, 0)}
-      </Button>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Button variant="primary" style={{ marginTop: "20px" }}>
+          Total items in cart: {Object.values(cart).reduce((a, b) => a + b, 0)}
+        </Button>
+      </div>
+      <span>
+        <h2> </h2>
+      </span>
     </div>
   );
 };

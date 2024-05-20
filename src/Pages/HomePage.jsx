@@ -27,8 +27,8 @@ export const HomePage = () => {
             <AddCarousel />
             <RecommendedMovies />
             <Entertainment />
-            {/* <PremierMovies /> */}
-            {/* <OutdoorEvents /> */}
+            <PremierMovies />
+            {/* {<OutdoorEvents /> */}
             {/* <div style={{ backgroundColor: "#F2F2F2" }}> */}
                 {/* <LaughterEvents /> */}
                 {/* <PopularEvents /> */}

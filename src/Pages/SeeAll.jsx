@@ -165,7 +165,7 @@ const SeeAll = () => {
             </div>
 
             <div>
-                <h2 style={{ background: 'none', fontSize: '25px', fontWeight: '700', marginLeft: '30px' }}>Poly House in {city}</h2>
+                <h2 style={{ background: 'none', fontSize: '25px', fontWeight: '700', marginLeft: '30px' }}>Polyhouse in {city}</h2>
                 <div className={styles.appliedFilter}>
                     {[...filterLanguage, ...filterGenre, ...filterFormate].map(item => (
                         <div>{item}</div>

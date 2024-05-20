@@ -110,7 +110,7 @@ const Navbar = () => {
 
   const handleSignIn = () => {
     setAction(true);
-    setState(false);
+    // setState(false);
   };
   const handleCloseLogin = (number) => {
     if (+number === 7275584516) {
@@ -123,7 +123,7 @@ const Navbar = () => {
       alert("Please type your number");
       handleCloseLogin(number);
     } else {
-      alert("You are not registered");
+      // alert("You are not registered");
     }
     setAction(false);
     setState(false);
@@ -138,11 +138,11 @@ const Navbar = () => {
       <div className={styles.navbar}>
         <div style={{ display: "flex", alignItems: "center", width: "65%" }}>
           <Link className={styles.link} to="/">
-            <svg height="40" width="150">
+            <svg height="50" width="100">
               <image
-                href="https://p1.hiclipart.com/preview/930/230/543/green-leaf-logo-agricultural-biotechnology-science-agriculture-fertilisers-research-diens-crop-png-clipart.jpg"
-                width="150"
-                height="40"
+                href={require("./7733931.png")}
+                width="100"
+                height="45"
               ></image>
             </svg>
           </Link>
@@ -150,18 +150,36 @@ const Navbar = () => {
             <SearchIcon />
             <input
               type="text"
-              placeholder="Search for Movies, Events, Plays, Sports and Activities"
+              placeholder="Search for Polyhouses and crops"
               onChange={(e) => setQuery(e.target.value)}
             />
           </div>
         </div>
-        {/* <div
+        <div
           style={{ display: "flex", alignItems: "center", fontSize: "17px" }}
         >
-          <div className={styles.location} onClick={handleClickOpen}>
+          <Link className={styles.link} to="/">
+            <svg height="30" width="100">
+              <image
+                href={require("./bell.png")}
+                width="100"
+                height="25"
+              ></image>
+            </svg>
+          </Link>
+          <Link className={styles.link} to="/">
+            <svg height="30" width="100">
+              <image
+                href={require("./user.png")}
+                width="100"
+                height="30"
+              ></image>
+            </svg>
+          </Link>
+          {/* <div className={styles.location} onClick={handleClickOpen}>
             <div>{cityName}</div>
             <ArrowDropDownIcon />
-          </div>
+          </div> */}
           {!isAuth && (
             <button onClick={handleSignIn} className={styles.signBtn}>
                 <p>Sign In</p>
@@ -171,7 +189,7 @@ const Navbar = () => {
           <Login action={action} handleCloseLogin={handleCloseLogin} />
           <div
             onClick={toggleDrawer(true)}
-            onClose={toggleDrawer(false)}
+            // onClose={toggleDrawer(false)}
             className={styles.profile}
           >
             {isAuth && <AccountCircleIcon style={{ fontSize: "40px" }} />}
@@ -325,9 +343,9 @@ const Navbar = () => {
             </Drawer>
           </div>
         </div>
-      </div> */}
+      </div>
 
-      {/* <Dialog
+      {/* {<Dialog
         fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
@@ -370,8 +388,8 @@ const Navbar = () => {
             ))}
           </div>
         </DialogContent>
-      </Dialog> */}
-      {/* <div className={styles.secondNav}>
+      </Dialog> } */}
+      {/* { <div className={styles.secondNav}>
         <div>
           <Link className={styles.link} to="">
             Movies
@@ -412,8 +430,8 @@ const Navbar = () => {
             Gift Cards
           </Link>
         </div>
-      </div> */}
-       </div>
+      </div>} */}
+       {/* </div> */}
     </div>
   );
 };

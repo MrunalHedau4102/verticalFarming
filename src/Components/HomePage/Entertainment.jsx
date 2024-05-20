@@ -3,19 +3,39 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import styles from "../Styling/RecommendedMovies.module.css";
 import { Link } from 'react-router-dom';
-
-const data = [
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/20699318/pexels-photo-20699318/free-photo-of-a-white-sand-desert-with-tracks-in-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-]
+const cropData = [
+    {
+        name: "Tomatoes",
+        image: require("./tomatoes.jpg"),
+        polyhouses: ["Krishikan", "PlantFarmula", "WAY2GROW"]
+    },
+    {
+        name: "Carrots",
+        image: require("./carrot-orange-500-g-product-images-o590000186-p590000186-0-202207291751.jpg"),
+        polyhouses: ["PlantFarmula", "Triton Foodworks"]
+    },
+    {
+        name: "Lettuce",
+        image: require("./lettuce.webp"),
+        polyhouses: ["WAY2GROW"]
+    },
+    {
+        name: "Cucumbers",
+        image: require("./images (1).jpg"),
+        polyhouses: ["Triton Foodworks"]
+    },
+    {
+        name: "Raspberries",
+        image: require("./raspbery.jpg"),
+        polyhouses: ["Macrogardens"]
+    },
+    {
+        name: "Peaches",
+        image: require("./peach.jpg"),
+        polyhouses: ["Polyhouse 6"]
+    },
+    // Add more crops as needed
+];
 
 export const Entertainment = () => {
     const responsive = {
@@ -35,25 +55,31 @@ export const Entertainment = () => {
             breakpoint: { max: 464, min: 0 },
             items: 1
         }
+
     };
+
     return (
         <div className={styles.parent} style={{ margin: 10 }}>
             <div className={styles.parent__text}>
-                <h1>List of Poly Houses</h1>
+                <h1>List of Polyhouses Growing Each Crop</h1>
             </div>
 
 
             <div className={styles.entertainment_container}>
-                <Carousel responsive={responsive} removeArrowOnDeviceType={["tablet", "mobile"]} >
-                    {
-                        data?.map((image, index) => (
-                            <div key={index + 1}>
-                                <Link to={`/movies/${index + 1}`}>
-                                    <img src={image} alt="Entertainment" />
-                                </Link>
-                            </div>
-                        ))
-                    }
+                <Carousel responsive={responsive} removeArrowOnDeviceType={["tablet", "mobile"]}>
+                    {cropData?.map((crop, index) => (
+                        <div key={index + 1} style={styles.cardCustom}>
+                            <Link to={`/movies/${index + 1}`}>
+                                <img style={styles.cardImgTop} src={crop.image} alt="Entertainment" />
+                            </Link>
+                            <ul className="list-group list-group-flush" style={styles.listGroup}>
+                                {crop.polyhouses.map((polyhouse, polyIndex) => (
+                                    <li key={polyIndex} className="list-group-item" style={styles.listItem}>{polyhouse}</li>
+                                ))}
+                            </ul>
+
+                        </div>
+                    ))}
                 </Carousel>
             </div>
         </div>

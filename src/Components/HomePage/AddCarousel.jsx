@@ -3,14 +3,14 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const dataList = [
-    "https://images.pexels.com/photos/5478921/pexels-photo-5478921.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/6508401/pexels-photo-6508401.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/6508402/pexels-photo-6508402.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/7299994/pexels-photo-7299994.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/348689/pexels-photo-348689.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/11534647/pexels-photo-11534647.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-    "https://images.pexels.com/photos/1087905/pexels-photo-1087905.jpeg?auto=compress&cs=tinysrgb&w=600"
-]
+    require("./pexels-nc-farm-bureau-mark-2886937.jpg"),
+    require("./fresh-organic-vegetables-grow-greenhouse-industry-generated-by-ai.jpg"),
+
+    require("./images.jpg"),
+    require("./organic-vertical-farming-pipe-lines-vertical-farming-cultivating-plant-skyscraper-greenhouse-vertically-inclined-119549579.webp"),
+    require("./vertical-farming-nvph-01-1000x1000.jpg"),
+    // Add more image paths here
+];
 
 export const AddCarousel = () => {
 
@@ -35,13 +35,13 @@ export const AddCarousel = () => {
 
     return (
         <Carousel responsive={responsive} removeArrowOnDeviceType={["mobile"]} autoPlay infinite>
- {
-  dataList?.map((banner, index) => (
-    <div style={{ padding: "0px 15px", width: "100%", height: "500px", display: "flex", justifyContent: "center" }} key={index + 1}>
-      <img style={{ width: "100%", height: "100%", objectFit: "fill", cursor: "pointer" }} src={banner} alt="Advertisement banner" />
-    </div>
-  ))
-}
+        {
+        dataList?.map((banner, index) => (
+            <div style={{ padding: "0px 15px", width: "100%", height: "500px", display: "flex", justifyContent: "center" }} key={index + 1}>
+            <img style={{ width: "100%", height: "100%", objectFit: "fill", cursor: "pointer" }} src={banner} alt="Advertisement banner" />
+            </div>
+        ))
+        }
 </Carousel>
     )
 }
